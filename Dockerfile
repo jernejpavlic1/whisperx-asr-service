@@ -26,7 +26,7 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip
 RUN pip3 install --no-cache-dir \
     torch==2.7.1 \
     torchaudio==2.7.1 \
-    --index-url https://download.pytorch.org/whl/cu126
+    --index-url https://download.pytorch.org/whl/cu118
 
 # Set library path to prefer PyTorch's bundled cuDNN over system cuDNN
 #ENV LD_LIBRARY_PATH=/usr/local/lib/python3.10/dist-packages/torch/lib:/usr/local/lib/python3.10/dist-packages/nvidia/cudnn/lib:$LD_LIBRARY_PATH
