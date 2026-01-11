@@ -1,7 +1,7 @@
 # WhisperX ASR API Service Dockerfile
 # Based on NVIDIA CUDA for GPU support
 
-FROM nvidia/cuda:12.6.2-runtime-ubuntu22.04
+FROM nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04
 
 # Prevent interactive prompts during build
 ENV DEBIAN_FRONTEND=noninteractive
