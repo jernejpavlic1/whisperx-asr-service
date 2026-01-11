@@ -24,8 +24,8 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip
 
 # Install PyTorch with CUDA support (includes bundled cuDNN 9.8)
 RUN pip3 install --no-cache-dir \
-    torch==2.9.0 \
-    torchaudio==2.9.0 \
+    torch==2.7.1 \
+    torchaudio==2.7.1 \
     --index-url https://download.pytorch.org/whl/cu126
 
 # Set library path to prefer PyTorch's bundled cuDNN over system cuDNN
