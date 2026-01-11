@@ -24,8 +24,8 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip
 
 # Install PyTorch with CUDA support (includes bundled cuDNN 9.8)
 RUN pip3 install --no-cache-dir \
-    torch==2.7.1 \
-    torchaudio==2.7.1 \
+    torch==2.7.1+cu118 \
+    torchaudio==2.7.1+cu118 \
     --index-url https://download.pytorch.org/whl/cu118
 
 # Set library path to prefer PyTorch's bundled cuDNN over system cuDNN
@@ -33,7 +33,13 @@ RUN pip3 install --no-cache-dir \
 
 # Install WhisperX from sealambda's pyannote-audio-4 compatible branch
 # Credit: https://github.com/sealambda/whisperX/tree/feat/pyannote-audio-4
-RUN pip3 install --no-cache-dir git+https://github.com/sealambda/whisperX.git@feat/pyannote-audio-4
+RUN pip3 install --no-cache-dir --no-deps git+https://github.com/sealambda/whisperX.git@feat/pyannote-audio-4
+
+# Install PyTorch with CUDA support (includes bundled cuDNN 9.8)
+RUN pip3 install --no-cache-dir \
+    torch==2.7.1+cu118 \
+    torchaudio==2.7.1+cu118 \
+    --index-url https://download.pytorch.org/whl/cu118
 
 # Patch WhisperX diarize.py to use 'token=' instead of 'use_token=' for pyannote.audio 4.0
 # This handles both single-line and multi-line formatting
